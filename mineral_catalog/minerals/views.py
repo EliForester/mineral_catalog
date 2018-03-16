@@ -17,8 +17,8 @@ def mineral_detail(request, pk):
                   {'mineral': mineral})
 
 
-def mineral_rando(request):
-    random_pk = randint(0, Mineral.objects.count())
+def mineral_random(request):
+    random_pk = randint(1, Mineral.objects.count())
     mineral = get_object_or_404(Mineral, pk=random_pk)
     return render(request, 'minerals/mineral_detail.html',
                   {'mineral': mineral})

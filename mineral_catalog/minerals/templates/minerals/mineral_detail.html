@@ -10,8 +10,7 @@
       </div>
       <div class="mineral__table-container">
         <table class="mineral__table">
-          <tr>
-            <td class="mineral__category">Category</td>
+          <tr>            <td class="mineral__category">Category</td>
             <td>{{ mineral.category }}</td>
           </tr>
           <tr>
@@ -20,11 +19,15 @@
           </tr>
           <tr>
             <td class="mineral__category">Formula</td>
-            <td class="mineral__formula">{{ mineral.formula|safe }}</td>
+            <td>{{ mineral.formula|safe }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Strunz Classification</td>
             <td>{{ mineral.strunz_classification }}</td>
+          </tr>
+          <tr>
+            <td class="mineral__category">Crystal System</td>
+            <td>{{ mineral.crystal_system }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Unit Cell</td>
@@ -35,12 +38,28 @@
             <td>{{ mineral.color }}</td>
           </tr>
           <tr>
-            <td class="mineral__category">Crystal Habit</td>
-            <td>{{ mineral.crystal_habit }}</td>
+            <td class="mineral__category">Crystal Symmetry</td>
+            <td>{{ mineral.crystal_symmetry }}</td>
+          </tr>
+          <tr>
+            <td class="mineral__category">Cleavage</td>
+            <td>{{ mineral.cleavage }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Mohs Scale Hardness</td>
             <td>{{ mineral.mohs_scale_hardness }}</td>
+          </tr>
+          <tr>
+            <td class="mineral__category">Luster</td>
+            <td>{{ mineral.luster }}</td>
+          </tr>
+          <tr>
+            <td class="mineral__category">Streak</td>
+            <td>{{ mineral.streak }}</td>
+          </tr>
+          <tr>
+            <td class="mineral__category">Diapheneity</td>
+            <td>{{ mineral.diaphaneity }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Optical Properties</td>

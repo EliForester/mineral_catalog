@@ -4,15 +4,14 @@ from django.db import models
 
 
 class Mineral(models.Model):
-    name = models.TextField() # in
-    image_filename = models.TextField() # in
-    image_caption = models.TextField() # in
-    category = models.TextField() # in
-    formula = models.TextField(blank=True) # in
-    strunz_classification = models.TextField(blank=True) # in
-    crystal_system = models.TextField(blank=True) # in
-    unit_cell = models.TextField(blank=True) # in
-    color = models.TextField(blank=True) # in
+    name = models.TextField()
+    image_caption = models.TextField()
+    category = models.TextField()
+    formula = models.TextField(blank=True)
+    strunz_classification = models.TextField(blank=True)
+    crystal_system = models.TextField(blank=True)
+    unit_cell = models.TextField(blank=True)
+    color = models.TextField(blank=True)
     crystal_symmetry = models.TextField(blank=True)
     cleavage = models.TextField(blank=True)
     mohs_scale_hardness = models.TextField(blank=True)
@@ -20,7 +19,7 @@ class Mineral(models.Model):
     streak = models.TextField(blank=True)
     diaphaneity = models.TextField(blank=True)
     optical_properties = models.TextField(blank=True)
-    group = models.TextField() # in
+    group = models.TextField()
     crystal_habit = models.TextField(blank=True)
 
     def __str__(self):

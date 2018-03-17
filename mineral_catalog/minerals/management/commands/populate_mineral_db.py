@@ -1,29 +1,30 @@
+from django.core.management.base import BaseCommand
 import json
-from mineral_catalog.minerals.models import Mineral
+from minerals.models import Mineral
 
 
-class LoadData():
-    file = 'data/minerals.json'
+class Command(BaseCommand):
+    help = "Loads initial data from json file"
 
-    def initial_load(apps, schema_editor):
-        source_file = 'data/minerals.json'
-        with open(source_file, encoding='UTF-8') as raw_data_file:
+    source_file = 'data/minerals.json'
+
+    fields = ['name', 'image filename', 'image caption', 'category',
+              'formula', 'strunz classification', 'crystal system',
+              'unit cell', 'color', 'crystal symmetry', 'cleavage',
+              'mohs scale hardness', 'luster', 'streak', 'diaphaneity',
+              'optical properties', 'group']
+
+    def handle(self, *args, **options):
+        with open(self.source_file, encoding='UTF-8') as raw_data_file:
             raw_data = json.load(raw_data_file)
-            fields = ['name', 'image filename', 'image caption', 'category',
-                      'formula', 'strunz classification', 'crystal system',
-                      'unit cell', 'color', 'crystal symmetry', 'cleavage',
-                      'mohs scale hardness', 'luster', 'streak', 'diaphaneity',
-                      'optical properties', 'group']
 
             for mineral in raw_data:
-
-                for field in fields:
+                for field in self.fields:
                     if field not in mineral:
                         mineral[field] = ''
 
-                new_mineral = Mineral.objects.create(
+                Mineral.objects.create(
                     name=mineral['name'],
-                    image_filename=mineral['image filename'],
                     image_caption=mineral['image caption'],
                     category=mineral['category'],
                     formula=mineral['formula'],
@@ -41,7 +42,3 @@ class LoadData():
                     group=mineral['group']
                 )
 
-
-if __name__ == '__main__':
-    a = LoadData()
-    a.initial_load()

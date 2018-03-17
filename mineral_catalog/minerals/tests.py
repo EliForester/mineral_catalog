@@ -35,18 +35,15 @@ class MineralsViewTests(TestCase):
         resp = self.client.get(reverse('minerals:list'))
         self.assertTemplateUsed('minerals/minerals.html')
         self.assertContains(resp, self.test_mineral.name)
-        #print(resp.context['all_minerals'])
 
     def test_view_detail(self):
         resp = self.client.get(reverse('minerals:detail',
                                        args=[self.test_mineral.pk]))
         self.assertTemplateUsed('minerals/mineral_detail.html')
         self.assertContains(resp, self.test_mineral.name)
-        #print(resp.context['mineral'])
 
     def test_view_random(self):
         resp = self.client.get(reverse('minerals:random'))
         self.assertTemplateUsed('minerals/mineral_detail.html')
         self.assertContains(resp, self.test_mineral.name)
-        #print(self.test_mineral.name, resp.context['mineral'])
 

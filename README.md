@@ -14,7 +14,7 @@ Run the following:
   python manage.py runserver 0.0.0.0:8000
 ```
 
-_populate_mineral_db_** *is a command added to do the initial data load - without running this the project won't have any data*
+**_populate_mineral_db_** *is a command added to do the initial data load - without running this the project won't have any data*
 
 ### Prerequisites
 

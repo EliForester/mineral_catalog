@@ -2,7 +2,9 @@
 Project to catalog minerals
 
 ## Getting Started
+
 Clone the repository
+
 Run the following:
 
 ```

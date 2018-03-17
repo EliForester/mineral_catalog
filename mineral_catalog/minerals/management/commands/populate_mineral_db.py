@@ -8,11 +8,11 @@ class Command(BaseCommand):
 
     source_file = 'data/minerals.json'
 
-    fields = ['name', 'image filename', 'image caption', 'category',
-              'formula', 'strunz classification', 'crystal system',
-              'unit cell', 'color', 'crystal symmetry', 'cleavage',
-              'mohs scale hardness', 'luster', 'streak', 'diaphaneity',
-              'optical properties', 'group']
+    fields = ['name', 'image caption', 'category', 'formula',
+              'strunz classification', 'crystal system', 'unit cell',
+              'color', 'crystal symmetry', 'cleavage', 'mohs scale hardness',
+              'luster', 'streak', 'diaphaneity', 'optical properties',
+              'group', 'refractive index', 'crystal habit', 'specific gravity']
 
     def handle(self, *args, **options):
         with open(self.source_file, encoding='UTF-8') as raw_data_file:
@@ -39,6 +39,9 @@ class Command(BaseCommand):
                     streak=mineral['streak'],
                     diaphaneity=mineral['diaphaneity'],
                     optical_properties=mineral['optical properties'],
-                    group=mineral['group']
+                    group=mineral['group'],
+                    crystal_habit=mineral['crystal habit'],
+                    refractive_index=mineral['refractive index'],
+                    specific_gravity=mineral['specific gravity']
                 )
 

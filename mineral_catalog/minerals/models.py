@@ -21,6 +21,8 @@ class Mineral(models.Model):
     optical_properties = models.TextField(blank=True)
     group = models.TextField()
     crystal_habit = models.TextField(blank=True)
+    refractive_index = models.TextField(blank=True)
+    specific_gravity = models.TextField(blank=True)
 
     def __str__(self):
         return self.name

@@ -6,16 +6,16 @@
       <h1 class="mineral__name">{{ mineral.name|title }}</h1>
       <div class="mineral__image-bg">
         <img class="mineral__image" src="{% static 'images/' %}{{ mineral.name }}.jpg">
-        <p class="mineral__caption">{{ mineral.image_caption }}</p>
+        <p class="mineral__caption">{{ mineral.image_caption|title }}</p>
       </div>
       <div class="mineral__table-container">
         <table class="mineral__table">
           <tr>            <td class="mineral__category">Category</td>
-            <td>{{ mineral.category }}</td>
+            <td>{{ mineral.category|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Group</td>
-            <td>{{ mineral.group }}</td>
+            <td>{{ mineral.group|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Formula</td>
@@ -23,11 +23,11 @@
           </tr>
           <tr>
             <td class="mineral__category">Color</td>
-            <td>{{ mineral.color }}</td>
+            <td>{{ mineral.color|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Crystal Habit</td>
-            <td>{{ mineral.crystal_habit }}</td>
+            <td>{{ mineral.crystal_habit|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Strunz Classification</td>
@@ -35,7 +35,7 @@
           </tr>
           <tr>
             <td class="mineral__category">Crystal System</td>
-            <td>{{ mineral.crystal_system }}</td>
+            <td>{{ mineral.crystal_system|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Unit Cell</td>
@@ -56,19 +56,19 @@
           </tr>
           <tr>
             <td class="mineral__category">Luster</td>
-            <td>{{ mineral.luster }}</td>
+            <td>{{ mineral.luster|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Streak</td>
-            <td>{{ mineral.streak }}</td>
+            <td>{{ mineral.streak|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Diapheneity</td>
-            <td>{{ mineral.diaphaneity }}</td>
+            <td>{{ mineral.diaphaneity|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Optical Properties</td>
-            <td>{{ mineral.optical_properties }}</td>
+            <td>{{ mineral.optical_properties|title }}</td>
           </tr>
           <tr>
             <td class="mineral__category">Refractive Index</td>

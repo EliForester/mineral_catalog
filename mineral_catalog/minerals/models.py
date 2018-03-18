@@ -24,5 +24,8 @@ class Mineral(models.Model):
     refractive_index = models.TextField(blank=True)
     specific_gravity = models.TextField(blank=True)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name

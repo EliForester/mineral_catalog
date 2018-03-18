@@ -17,9 +17,9 @@ class MineralsViewTests(TestCase):
             crystal_system='lumpy',
             unit_cell='cell unit',
             color='pinkish',
-            crystal_symmetry='to the left',
+            crystal_symmetry='right handed',
             cleavage='too much',
-            mohs_scale_hardness='oh come on',
+            mohs_scale_hardness='squishy',
             luster='gleaming',
             streak='wash',
             diaphaneity='ha',
@@ -41,6 +41,10 @@ class MineralsViewTests(TestCase):
                                        args=[self.test_mineral.pk]))
         self.assertTemplateUsed('minerals/mineral_detail.html')
         self.assertContains(resp, self.test_mineral.name)
+        self.assertTrue(self.test_mineral.category in
+                        resp.content.decode('UTF-8').lower())
+        self.assertTrue(self.test_mineral.group in
+                        resp.content.decode('UTF-8').lower())
 
     def test_view_random(self):
         resp = self.client.get(reverse('minerals:random'))

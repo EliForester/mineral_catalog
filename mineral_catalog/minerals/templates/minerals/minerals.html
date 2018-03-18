@@ -9,7 +9,7 @@
     {% for mineral in all_minerals %}
     <li class="minerals__item">
         <a class="minerals__anchor" href="{% url 'minerals:detail' pk=mineral.pk %}">
-            {{ mineral.name }}
+            {{ mineral.name|title }}
         </a>
     </li>
     {% endfor %}</ul>

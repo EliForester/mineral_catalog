@@ -1,12 +1,13 @@
 import os
 import json
 
+
 class ChangeNames:
     def __init__(self):
         self.img_path = '../assets/images'
         self.data_path = 'minerals.json'
         self.raw_data = json.load(open(self.data_path, encoding='UTF-8'))
-        self.all_names = [ line['name'] for line in self.raw_data ]
+        self.all_names = [line['name'] for line in self.raw_data]
         self.all_files = os.listdir(self.img_path)
 
     def change_names(self):

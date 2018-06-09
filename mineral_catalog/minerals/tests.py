@@ -51,3 +51,20 @@ class MineralsViewTests(TestCase):
         self.assertTemplateUsed('minerals/mineral_detail.html')
         self.assertContains(resp, self.test_mineral.name)
 
+    def test_view_letter_filter(self):
+        resp = self.client.get(reverse('minerals:filter',
+                                       args=['E']))
+        self.assertTemplateUsed('minerals/minerals.html')
+        self.assertContains(resp, self.test_mineral.name)
+
+    def test_view_group(self):
+        resp = self.client.get(reverse('minerals:group',
+                                       args=[self.test_mineral.group]))
+        self.assertTemplateUsed('minerals/minerals.html')
+        self.assertContains(resp, self.test_mineral.name)
+
+    def test_view_search(self):
+        resp = self.client.post(reverse('minerals:search'),
+                                {'search_text': 'ite'})
+        self.assertTemplateUsed('minerals/minerals.html')
+        self.assertContains(resp, self.test_mineral.name)

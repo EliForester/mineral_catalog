@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from .settings import USE_DEBUG_TOOLBAR
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,3 +24,10 @@ urlpatterns = [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+
+if USE_DEBUG_TOOLBAR:
+    import debug_toolbar
+
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]

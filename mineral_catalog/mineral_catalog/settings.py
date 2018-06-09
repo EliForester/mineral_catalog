@@ -24,6 +24,7 @@ SECRET_KEY = 'c)ljo__vhb65551j!t6j1io&e!)g8qy54@c-z4#6o-j%@ijxge'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+USE_DEBUG_TOOLBAR = True
 
 ALLOWED_HOSTS = []
 
@@ -63,6 +64,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'minerals.context_processors.get_first_letters',
+                'minerals.context_processors.get_groups',
+                'minerals.context_processors.search_form',
             ],
         },
     },
@@ -122,3 +126,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
+
+if USE_DEBUG_TOOLBAR:
+    MIDDLEWARE += (
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
+    INTERNAL_IPS = ('127.0.0.1', )
+    DEBUG_TOOLBAR_CONFIG = {
+        'INTERCEPT_REDIRECTS': False,
+    }

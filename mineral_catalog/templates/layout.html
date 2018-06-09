@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 <body>
+
 <div class="site-container">
     <div class="bounds">
         <div class="grid-100">
@@ -25,6 +26,45 @@
                 <h1 class="logo__name text-centered">Minerals are Cool!</h1>
             </a>
             <p class="logo__text text-centered">Not Vitamins!</p>
+            <div class="grid-100 text-centered">
+            {% for letter in letters %}
+            <a href="{% url 'minerals:filter' string=letter%}">
+                            {% if current_filter %}
+                                {% if letter == current_filter %}
+                                    <i><b>{{ letter }}</b></i>
+                                {% else %}
+                                    {{ letter }}
+                                {% endif %}
+                            {% else %}
+                                {{ letter }}
+                            {% endif %}
+                </a>
+            {% endfor %}
+            </div>
+        </div>
+        <div>
+            <form action="{% url 'minerals:search' %}" method="POST">
+                {% csrf_token %}
+                {{ form }}
+            <input type="submit" value="Search" />
+            </form>
+        </div>
+        <div class="grid-20">
+            <ul>
+            {% for group_name in group_list %}
+                <li><a href="{% url 'minerals:group' group_name=group_name %}">
+                {% if current_group_filter %}
+                    {% if group_name == current_group_filter %}
+                        <i><b>{{ group_name }}</b></i>
+                    {% else %}
+                        {{ group_name }}
+                    {% endif %}
+                {% else %}
+                    {{ group_name }}
+                {% endif %}
+                </a></li>
+            {% endfor %}
+            </ul>
         </div>
             {% block content %}
             {% endblock %}

@@ -4,9 +4,9 @@
 
 {% block content %}
 
-<div class="grid-100">
+<div class="grid-80">
     <ul class="minerals__container">
-        {% for mineral in all_minerals %}
+        {% for mineral in mineral_list %}
         <li class="minerals__item">
             <a class="minerals__anchor" href="{% url 'minerals:detail' pk=mineral.pk %}">
                 {{ mineral.name|title }}

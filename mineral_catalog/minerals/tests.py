@@ -27,14 +27,33 @@ class MineralsViewTests(TestCase):
             group='homo neanderthalensis'
         )
 
+        self.test_mineral_2 = Mineral.objects.create(
+            name='Aubergine',
+            image_caption='tasty veggies',
+            category='fruit',
+            formula='carbon, water, dirt',
+            strunz_classification='salad',
+            crystal_system='squish',
+            unit_cell='cell unit',
+            color='purple',
+            crystal_symmetry='round',
+            cleavage='kitchen knife',
+            mohs_scale_hardness='squishy',
+            luster='matte',
+            streak='wash',
+            diaphaneity='ha',
+            optical_properties='very',
+            group='garden'
+        )
+
     def test_db(self):
         db_data = Mineral.objects.count()
-        self.assertEqual(db_data, 1)
+        self.assertEqual(db_data, 2)
 
     def test_view_all(self):
         resp = self.client.get(reverse('minerals:list'))
         self.assertTemplateUsed('minerals/minerals.html')
-        self.assertContains(resp, self.test_mineral.name)
+        self.assertContains(resp, self.test_mineral_2.name)
 
     def test_view_detail(self):
         resp = self.client.get(reverse('minerals:detail',

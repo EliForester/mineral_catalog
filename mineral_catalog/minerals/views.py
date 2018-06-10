@@ -6,10 +6,11 @@ from random import randint
 # Create your views here.
 
 
-def all_minerals(request):
-    mineral_list = Mineral.objects.all()
+def all_minerals(request, string='A'):
+    mineral_list = Mineral.objects.filter(name__startswith=string)
     return render(request, 'minerals/minerals.html',
-                  {'mineral_list': mineral_list})
+                  {'mineral_list': mineral_list,
+                   'current_filter': string})
 
 
 def mineral_detail(request, pk):
@@ -23,13 +24,6 @@ def mineral_random(request):
     mineral = get_object_or_404(Mineral, pk=random_pk)
     return render(request, 'minerals/mineral_detail.html',
                   {'mineral': mineral})
-
-
-def mineral_filter(request, string):
-    mineral_list = Mineral.objects.filter(name__startswith=string)
-    return render(request, 'minerals/minerals.html',
-                  {'mineral_list': mineral_list,
-                   'current_filter': string})
 
 
 def mineral_group(request, group_name):

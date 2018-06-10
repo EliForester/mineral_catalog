@@ -42,3 +42,11 @@ Can be toggled by setting USE_DEBUG_TOOLBAR to True in settings.py
 ```
 USE_DEBUG_TOOLBAR = True
 ```
+
+## Test coverage
+
+```
+Name                                                  Stmts   Miss  Cover
+-------------------------------------------------------------------------
+TOTAL                                                   189     32    83%
+```
